@@ -1,0 +1,15 @@
+repository/PrimitiveDef.dep repository/PrimitiveDef.o: \
+  repository/PrimitiveDef.cc \
+  repository/IRObject.h \
+  repository/PrimitiveDef.h \
+  repository/config.h \
+  repository/idltype.h \
+  repository/scour.h \
+
+## Diagnostic information starts here
+# repository/IRObject.h  from  repository/idltype.h
+# repository/PrimitiveDef.h  from  repository/PrimitiveDef.cc
+# repository/config.h  from  repository/IRObject.h
+# repository/idltype.h  from  repository/PrimitiveDef.h
+# repository/scour.h  from  repository/config.h
+

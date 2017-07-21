@@ -1,0 +1,19 @@
+repository/Persist.dep repository/Persist.o: \
+  repository/Persist.cc \
+  repository/Repository.h \
+  repository/Persist.h \
+  repository/PersistNode.h \
+  repository/Container.h \
+  repository/scour.h \
+  repository/IRObject.h \
+  repository/config.h \
+
+## Diagnostic information starts here
+# repository/Repository.h  from  repository/Persist.cc
+# repository/Persist.h  from  repository/Persist.cc
+# repository/PersistNode.h  from  repository/Persist.cc
+# repository/Container.h  from  repository/Repository.h
+# repository/scour.h  from  repository/config.h
+# repository/IRObject.h  from  repository/Container.h
+# repository/config.h  from  repository/IRObject.h
+

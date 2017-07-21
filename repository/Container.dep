@@ -1,0 +1,45 @@
+repository/Container.dep repository/Container.o: \
+  repository/Container.cc \
+  repository/IdentifierUtil.h \
+  repository/Repository.h \
+  repository/idltype.h \
+  repository/InterfaceDef.h \
+  repository/scour.h \
+  repository/Creche.h \
+  repository/PersistNode.h \
+  repository/Contained.h \
+  repository/Container.h \
+  repository/StructDef.h \
+  repository/AliasDef.h \
+  repository/ExceptionDef.h \
+  repository/ModuleDef.h \
+  repository/TypedefDef.h \
+  repository/IRObject.h \
+  repository/ConstantDef.h \
+  repository/EnumDef.h \
+  repository/config.h \
+  repository/Dependency.h \
+  repository/UnionDef.h \
+
+## Diagnostic information starts here
+# repository/IdentifierUtil.h  from  repository/Dependency.h
+# repository/Repository.h  from  repository/Container.cc
+# repository/idltype.h  from  repository/InterfaceDef.h
+# repository/InterfaceDef.h  from  repository/Container.cc
+# repository/scour.h  from  repository/config.h
+# repository/Creche.h  from  repository/Container.cc
+# repository/PersistNode.h  from  repository/Container.cc
+# repository/Contained.h  from  repository/InterfaceDef.h
+# repository/Container.h  from  repository/InterfaceDef.h
+# repository/StructDef.h  from  repository/Container.cc
+# repository/AliasDef.h  from  repository/Container.cc
+# repository/ExceptionDef.h  from  repository/Container.cc
+# repository/ModuleDef.h  from  repository/Container.cc
+# repository/TypedefDef.h  from  repository/StructDef.h
+# repository/IRObject.h  from  repository/Contained.h
+# repository/ConstantDef.h  from  repository/Container.cc
+# repository/EnumDef.h  from  repository/Container.cc
+# repository/config.h  from  repository/TypedefDef.h
+# repository/Dependency.h  from  repository/ConstantDef.h
+# repository/UnionDef.h  from  repository/Container.cc
+

@@ -1,0 +1,21 @@
+repository/ModuleDef.dep repository/ModuleDef.o: \
+  repository/ModuleDef.cc \
+  repository/IRObject.h \
+  repository/Container.h \
+  repository/scour.h \
+  repository/ModuleDef.h \
+  repository/Contained.h \
+  repository/idltype.h \
+  repository/TypedefDef.h \
+  repository/config.h \
+
+## Diagnostic information starts here
+# repository/IRObject.h  from  repository/Container.h
+# repository/Container.h  from  repository/ModuleDef.h
+# repository/scour.h  from  repository/config.h
+# repository/ModuleDef.h  from  repository/ModuleDef.cc
+# repository/Contained.h  from  repository/ModuleDef.h
+# repository/idltype.h  from  repository/TypedefDef.h
+# repository/TypedefDef.h  from  repository/ModuleDef.cc
+# repository/config.h  from  repository/TypedefDef.h
+

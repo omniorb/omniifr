@@ -1,0 +1,31 @@
+repository/AliasDef.dep repository/AliasDef.o: \
+  repository/AliasDef.cc \
+  repository/Repository.h \
+  repository/PersistNode.h \
+  repository/string_to.h \
+  repository/IRObject.h \
+  repository/Contained.h \
+  repository/Container.h \
+  repository/scour.h \
+  repository/IdentifierUtil.h \
+  repository/TypedefDef.h \
+  repository/idltype.h \
+  repository/AliasDef.h \
+  repository/config.h \
+  repository/Dependency.h \
+
+## Diagnostic information starts here
+# repository/Repository.h  from  repository/AliasDef.cc
+# repository/PersistNode.h  from  repository/AliasDef.cc
+# repository/string_to.h  from  repository/AliasDef.cc
+# repository/IRObject.h  from  repository/Container.h
+# repository/Contained.h  from  repository/TypedefDef.h
+# repository/Container.h  from  repository/Repository.h
+# repository/scour.h  from  repository/config.h
+# repository/IdentifierUtil.h  from  repository/Dependency.h
+# repository/TypedefDef.h  from  repository/AliasDef.h
+# repository/idltype.h  from  repository/TypedefDef.h
+# repository/AliasDef.h  from  repository/AliasDef.cc
+# repository/config.h  from  repository/IRObject.h
+# repository/Dependency.h  from  repository/AliasDef.h
+

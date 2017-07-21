@@ -1,0 +1,25 @@
+Index: src/lib/omniORB/orbcore/portableserver.cc
+===================================================================
+RCS file: /cvsroot/omniorb/omni/src/lib/omniORB/orbcore/Attic/portableserver.cc,v
+retrieving revision 1.2.2.11
+diff -c -r1.2.2.11 portableserver.cc
+*** src/lib/omniORB/orbcore/portableserver.cc	16 Jan 2002 11:32:00 -0000	1.2.2.11
+--- src/lib/omniORB/orbcore/portableserver.cc	30 Mar 2004 07:45:58 -0000
+***************
+*** 323,329 ****
+      call_desc(omniDynamicLib::ops->lookup_id_lcfn, "lookup_id", 10, repoId);
+    repository->_PR_getobj()->_invoke(call_desc);
+  
+!   return call_desc.result() ? call_desc.result()->_PR_getobj() : 0;
+  }
+  
+  
+--- 323,330 ----
+      call_desc(omniDynamicLib::ops->lookup_id_lcfn, "lookup_id", 10, repoId);
+    repository->_PR_getobj()->_invoke(call_desc);
+  
+!   CORBA::Object_ptr result =call_desc.result();
+!   return result? result->_PR_getobj(): 0;
+  }
+  
+  

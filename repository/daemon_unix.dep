@@ -1,0 +1,15 @@
+repository/daemon_unix.dep repository/daemon_unix.o: \
+  repository/daemon_unix.cc \
+  repository/scour.h \
+  repository/daemon_unix.h \
+  repository/config.h \
+  repository/daemon.h \
+  repository/main.h \
+
+## Diagnostic information starts here
+# repository/scour.h  from  repository/config.h
+# repository/daemon_unix.h  from  repository/daemon_unix.cc
+# repository/config.h  from  repository/daemon_unix.cc
+# repository/daemon.h  from  repository/daemon_unix.cc
+# repository/main.h  from  repository/daemon_unix.cc
+

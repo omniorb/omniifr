@@ -1,0 +1,17 @@
+repository/TypedefDef.dep repository/TypedefDef.o: \
+  repository/TypedefDef.cc \
+  repository/Contained.h \
+  repository/scour.h \
+  repository/TypedefDef.h \
+  repository/idltype.h \
+  repository/IRObject.h \
+  repository/config.h \
+
+## Diagnostic information starts here
+# repository/Contained.h  from  repository/TypedefDef.h
+# repository/scour.h  from  repository/config.h
+# repository/TypedefDef.h  from  repository/TypedefDef.cc
+# repository/idltype.h  from  repository/TypedefDef.h
+# repository/IRObject.h  from  repository/Contained.h
+# repository/config.h  from  repository/TypedefDef.h
+

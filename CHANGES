@@ -1,0 +1,24 @@
+omniIFR 2.pre.1
+---------------
+
+ o New build system.
+ 
+ o Fixed a bug that made it impossible to create a oneway operation.
+   (Thanks to Peter S. Housel for spotting that.)
+
+ o Can now save and restore state to a persistency database file.
+
+omniIFR 2.pre.0
+---------------
+
+Complete re-write. omniIFR2 has virtually no code in common with version 1.
+Nevertheless I owe a great deal to the original authors. Version 2 evolved
+over several months, using the older code as scaffolding to support it while
+it took shape.
+
+omniifr v1.1.4
+--------------
+
+This was the original code written by David Reyes i Forniés and
+Àlex Bassas i Serramià of factoriaX. It was rescued by Duncan Grisby, who
+created the Sourceforge project for it.

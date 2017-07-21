@@ -1,0 +1,10 @@
+omniORB-4.0.3 and omniORBpy-2.3 both have know problems that affect the
+InterfaceRepository:
+
+omniORBpy-2.3-keywords.patch -
+  Fixes a crashing bug in omniORBpy 2.3 (and
+  earlier) triggered by IDL identifiers that are also python keywords.
+
+omniORB-4.0.3-get_interface.patch -
+  Fixes a bug in omniORB 4.0.3 (and earlier)
+  that caused Object::_get_interface() to always return nil.

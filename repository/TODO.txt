@@ -1,0 +1,50 @@
+
+ o worry about recursive type codes.
+   It doesn't crash, but it doesn't work correctly either.
+
+ o Check for missing documentation.
+   I've asked OMG for permission to quote from the spec in the code comments.
+
+ o Check that OMG minor codes are correctly created when throwing.
+
+FUTURE:
+ 
+ o Implement: ValueDef
+
+ o Implement: ValueBoxDef
+
+ o Add integrity checks to all interfaces. It is possible to subvert the
+   coherence of the repository by changing things after the fact.
+ 
+ o What happens if activate_object fails??
+
+ ? Use the ORB class from omniEvents instead of keeping everything in
+   class Repository.
+
+ o Make Dependency1<> into a normal class - it always has the same template
+   parameter.
+   
+ o Sort out namespace consistency. Don't use CORBA:: where it's not needed.
+   Remove `using namespace ...;' where possible.
+ 
+ o Investigate omniORB's connection rules. It may be possible to restrict write
+   access to localhost. Possibly create an administrative interface on another
+   port.
+   
+ o Add support for versions.
+   Need to change the omniifr backend too - as it currently assumes that version
+   is not implemented (when it finds a contained with the same name as the 'new'
+   object, it assumes they are the same).
+
+DONE:
+
+ x Add an OmniIfr namespace.
+
+ x Persist/restore
+
+ x Check that the PersistNodes are deleted once reincarnation is complete.
+
+ x Locking. Need to be able to make the repository read-only. Perhaps with an
+   extended IDL interface, or perhaps by sending the thing signals.
+
+ x Daemon support.

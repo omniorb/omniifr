@@ -1,0 +1,31 @@
+repository/UnionDef.dep repository/UnionDef.o: \
+  repository/UnionDef.cc \
+  repository/Repository.h \
+  repository/PersistNode.h \
+  repository/string_to.h \
+  repository/Contained.h \
+  repository/Container.h \
+  repository/scour.h \
+  repository/IdentifierUtil.h \
+  repository/IRObject.h \
+  repository/idltype.h \
+  repository/TypedefDef.h \
+  repository/config.h \
+  repository/Dependency.h \
+  repository/UnionDef.h \
+
+## Diagnostic information starts here
+# repository/Repository.h  from  repository/UnionDef.cc
+# repository/PersistNode.h  from  repository/UnionDef.cc
+# repository/string_to.h  from  repository/UnionDef.cc
+# repository/Contained.h  from  repository/TypedefDef.h
+# repository/Container.h  from  repository/Repository.h
+# repository/scour.h  from  repository/config.h
+# repository/IdentifierUtil.h  from  repository/Dependency.h
+# repository/IRObject.h  from  repository/Container.h
+# repository/idltype.h  from  repository/TypedefDef.h
+# repository/TypedefDef.h  from  repository/UnionDef.h
+# repository/config.h  from  repository/IRObject.h
+# repository/Dependency.h  from  repository/UnionDef.h
+# repository/UnionDef.h  from  repository/UnionDef.cc
+

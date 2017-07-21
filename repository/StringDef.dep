@@ -1,0 +1,21 @@
+repository/StringDef.dep repository/StringDef.o: \
+  repository/StringDef.cc \
+  repository/Repository.h \
+  repository/PersistNode.h \
+  repository/Container.h \
+  repository/scour.h \
+  repository/IRObject.h \
+  repository/idltype.h \
+  repository/StringDef.h \
+  repository/config.h \
+
+## Diagnostic information starts here
+# repository/Repository.h  from  repository/StringDef.cc
+# repository/PersistNode.h  from  repository/StringDef.cc
+# repository/Container.h  from  repository/Repository.h
+# repository/scour.h  from  repository/config.h
+# repository/IRObject.h  from  repository/Container.h
+# repository/idltype.h  from  repository/StringDef.h
+# repository/StringDef.h  from  repository/StringDef.cc
+# repository/config.h  from  repository/IRObject.h
+

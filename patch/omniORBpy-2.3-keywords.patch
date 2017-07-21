@@ -1,0 +1,37 @@
+Index: modules/pyTypeCode.cc
+===================================================================
+RCS file: /cvsroot/omniorb/omniORBpy/modules/Attic/pyTypeCode.cc,v
+retrieving revision 1.1.2.13
+diff -c -r1.1.2.13 pyTypeCode.cc
+*** modules/pyTypeCode.cc	31 Aug 2003 20:27:27 -0000	1.1.2.13
+--- modules/pyTypeCode.cc	20 Mar 2004 22:12:16 -0000
+***************
+*** 724,729 ****
+--- 724,730 ----
+  
+  	  if ((word = PyDict_GetItem(omniPy::pyomniORBwordMap, t_o))) {
+  	    Py_DECREF(t_o);
++ 	    Py_INCREF(word);
+  	    t_o = word;
+  	  }
+  	  PyTuple_SET_ITEM(d_o, j++, t_o);
+***************
+*** 841,846 ****
+--- 842,848 ----
+  
+  	  if ((word = PyDict_GetItem(omniPy::pyomniORBwordMap, t_o))) {
+  	    Py_DECREF(t_o);
++ 	    Py_INCREF(word);
+  	    t_o = word;
+  	  }
+  	  PyTuple_SET_ITEM(mem, 1, t_o);
+***************
+*** 1056,1061 ****
+--- 1058,1064 ----
+  
+  	  if ((word = PyDict_GetItem(omniPy::pyomniORBwordMap, t_o))) {
+  	    Py_DECREF(t_o);
++ 	    Py_INCREF(word);
+  	    t_o = word;
+  	  }
+  	  PyTuple_SET_ITEM(d_o, j++, t_o);

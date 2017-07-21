@@ -1,0 +1,35 @@
+repository/InterfaceDef.dep repository/InterfaceDef.o: \
+  repository/InterfaceDef.cc \
+  repository/Repository.h \
+  repository/InterfaceDef.h \
+  repository/Creche.h \
+  repository/PersistNode.h \
+  repository/AttributeDef.h \
+  repository/Contained.h \
+  repository/Container.h \
+  repository/scour.h \
+  repository/IdentifierUtil.h \
+  repository/IRObject.h \
+  repository/idltype.h \
+  repository/TypedefDef.h \
+  repository/OperationDef.h \
+  repository/config.h \
+  repository/Dependency.h \
+
+## Diagnostic information starts here
+# repository/Repository.h  from  repository/InterfaceDef.cc
+# repository/InterfaceDef.h  from  repository/InterfaceDef.cc
+# repository/Creche.h  from  repository/InterfaceDef.cc
+# repository/PersistNode.h  from  repository/InterfaceDef.cc
+# repository/AttributeDef.h  from  repository/InterfaceDef.cc
+# repository/Contained.h  from  repository/AttributeDef.h
+# repository/Container.h  from  repository/InterfaceDef.h
+# repository/scour.h  from  repository/config.h
+# repository/IdentifierUtil.h  from  repository/InterfaceDef.cc
+# repository/IRObject.h  from  repository/Contained.h
+# repository/idltype.h  from  repository/InterfaceDef.h
+# repository/TypedefDef.h  from  repository/InterfaceDef.cc
+# repository/OperationDef.h  from  repository/InterfaceDef.cc
+# repository/config.h  from  repository/TypedefDef.h
+# repository/Dependency.h  from  repository/OperationDef.h
+

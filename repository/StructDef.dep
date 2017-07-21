@@ -1,0 +1,29 @@
+repository/StructDef.dep repository/StructDef.o: \
+  repository/StructDef.cc \
+  repository/Repository.h \
+  repository/scour.h \
+  repository/PersistNode.h \
+  repository/Contained.h \
+  repository/Container.h \
+  repository/StructDef.h \
+  repository/IdentifierUtil.h \
+  repository/TypedefDef.h \
+  repository/idltype.h \
+  repository/IRObject.h \
+  repository/config.h \
+  repository/Dependency.h \
+
+## Diagnostic information starts here
+# repository/Repository.h  from  repository/StructDef.cc
+# repository/scour.h  from  repository/config.h
+# repository/PersistNode.h  from  repository/StructDef.cc
+# repository/Contained.h  from  repository/TypedefDef.h
+# repository/Container.h  from  repository/Repository.h
+# repository/StructDef.h  from  repository/StructDef.cc
+# repository/IdentifierUtil.h  from  repository/Dependency.h
+# repository/TypedefDef.h  from  repository/StructDef.h
+# repository/idltype.h  from  repository/TypedefDef.h
+# repository/IRObject.h  from  repository/idltype.h
+# repository/config.h  from  repository/IRObject.h
+# repository/Dependency.h  from  repository/StructDef.h
+

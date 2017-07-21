@@ -1,0 +1,140 @@
+Here is an example session:
+
+1. START THE IFR:
+
+% repository/omniIFR -ORBendPoint giop:tcp::4321&
+running ORB.
+
+2. FEED AN IDL INTO IT:
+
+% omniidl -pbackend -bifr -I/usr/share/idl/omniorb/COS -Wb-ORBInitRef,InterfaceRepository=corbaloc::quango:4321/DefaultRepository /usr/share/idl/omniorb/COS/CosTime.idl
+ ORB initialized
+
+Creating Module: IDL:omg.org/TimeBase:1.0
+Creating alias: IDL:omg.org/TimeBase/TimeT:1.0
+Creating alias: IDL:omg.org/TimeBase/InaccuracyT:1.0
+Creating alias: IDL:omg.org/TimeBase/TdfT:1.0
+Creating struct: IDL:omg.org/TimeBase/UtcT:1.0
+Creating struct: IDL:omg.org/TimeBase/IntervalT:1.0
+Creating Module: IDL:omg.org/CosTime:1.0
+Creating enum: IDL:omg.org/CosTime/TimeComparison:1.0
+Creating enum: IDL:omg.org/CosTime/ComparisonType:1.0
+Creating enum: IDL:omg.org/CosTime/OverlapType:1.0
+Creating exception: IDL:omg.org/CosTime/TimeUnavailable:1.0
+Creating Interface: IDL:omg.org/CosTime/TIO:1.0
+Creating Interface: IDL:omg.org/CosTime/UTO:1.0
+Creating Attribute: IDL:omg.org/CosTime/UTO/time:1.0
+Creating Attribute: IDL:omg.org/CosTime/UTO/inaccuracy:1.0
+Creating Attribute: IDL:omg.org/CosTime/UTO/tdf:1.0
+Creating Attribute: IDL:omg.org/CosTime/UTO/utc_time:1.0
+Creating Operation: IDL:omg.org/CosTime/UTO/absolute_time:1.0
+Creating Operation: IDL:omg.org/CosTime/UTO/compare_time:1.0
+Creating Operation: IDL:omg.org/CosTime/UTO/time_to_interval:1.0
+Creating Operation: IDL:omg.org/CosTime/UTO/interval:1.0
+Expanding forward ref to Interface: IDL:omg.org/CosTime/TIO:1.0
+Creating Attribute: IDL:omg.org/CosTime/TIO/time_interval:1.0
+Creating Operation: IDL:omg.org/CosTime/TIO/spans:1.0
+Creating Operation: IDL:omg.org/CosTime/TIO/overlaps:1.0
+Creating Operation: IDL:omg.org/CosTime/TIO/time:1.0
+Creating Interface: IDL:omg.org/CosTime/TimeService:1.0
+Creating Operation: IDL:omg.org/CosTime/TimeService/universal_time:1.0
+Creating Operation: IDL:omg.org/CosTime/TimeService/secure_universal_time:1.0
+Creating Operation: IDL:omg.org/CosTime/TimeService/new_universal_time:1.0
+Creating Operation: IDL:omg.org/CosTime/TimeService/uto_from_utc:1.0
+Creating Operation: IDL:omg.org/CosTime/TimeService/new_interval:1.0
+
+IFR OUTPUT:
+
+Contained_impl::name("TimeBase")
+Contained_impl::name("TimeT")
+Contained_impl::name("InaccuracyT")
+Contained_impl::name("TdfT")
+Contained_impl::name("UtcT")
+Contained_impl::name("IntervalT")
+Contained_impl::name("CosTime")
+Contained_impl::name("TimeComparison")
+Contained_impl::name("ComparisonType")
+Contained_impl::name("OverlapType")
+Contained_impl::name("TimeUnavailable")
+Contained_impl::name("TIO")
+Contained_impl::name("UTO")
+Contained_impl::name("time")
+Contained_impl::name("inaccuracy")
+Contained_impl::name("tdf")
+Contained_impl::name("utc_time")
+Contained_impl::name("absolute_time")
+Contained_impl::name("compare_time")
+Contained_impl::name("time_to_interval")
+Contained_impl::name("interval")
+Contained_impl::name("time_interval")
+Contained_impl::name("spans")
+Contained_impl::name("overlaps")
+Contained_impl::name("time")
+Contained_impl::name("TimeService")
+Contained_impl::name("universal_time")
+Contained_impl::name("secure_universal_time")
+Contained_impl::name("new_universal_time")
+Contained_impl::name("uto_from_utc")
+Contained_impl::name("new_interval")
+
+RUN THE "BROWSER" TO DUMP THE IFR CONTENTS:
+
+% python browser/ifrclt.py -ORBInitRef InterfaceRepository=corbaloc::quango:4321/DefaultRepository
+   module TimeBase {
+     typedef unsigned long long TimeT;
+     typedef TimeT InaccuracyT;
+     typedef short TdfT;
+     struct UtcT {
+       TimeT time
+       unsigned long inacclo
+       unsigned short inacchi
+       TdfT tdf
+     };
+     struct IntervalT {
+       TimeT lower_bound
+       TimeT upper_bound
+     };
+   };
+   module CosTime {
+     enum TimeComparison { 
+         TCEqualTo, 
+         TCLessThan, 
+         TCGreaterThan, 
+         TCIndeterminate };
+     enum ComparisonType { IntervalC, MidC };
+     enum OverlapType { 
+         OTContainer, 
+         OTContained, 
+         OTOverlap, 
+         OTNoOverlap };
+     exception TimeUnavailable {
+     };
+     interface TIO {
+       readonly attribute IntervalT time_interval;
+       boolean spans(in UTO time, out TIO overlap);
+       boolean overlaps(in TIO interval, out TIO overlap);
+       UTO time();
+     };
+     interface UTO {
+       readonly attribute TimeT time;
+       readonly attribute InaccuracyT inaccuracy;
+       readonly attribute TdfT tdf;
+       readonly attribute UtcT utc_time;
+       UTO absolute_time();
+       TimeComparison compare_time(in ComparisonType comparison_type, in UTO uto);
+       TIO time_to_interval(in UTO uto);
+       TIO interval();
+     };
+     interface TimeService {
+       UTO universal_time()
+         raises(TimeUnavailable);
+       UTO secure_universal_time()
+         raises(TimeUnavailable);
+       UTO new_universal_time(
+           in TimeT time, 
+           in InaccuracyT inaccuracy, 
+           in TdfT tdf);
+       UTO uto_from_utc(in UtcT utc);
+       TIO new_interval(in TimeT lower, in TimeT upper);
+     };
+   };

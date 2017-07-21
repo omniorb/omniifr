@@ -1,0 +1,31 @@
+repository/OperationDef.dep repository/OperationDef.o: \
+  repository/OperationDef.cc \
+  repository/Repository.h \
+  repository/PersistNode.h \
+  repository/string_to.h \
+  repository/Contained.h \
+  repository/Container.h \
+  repository/scour.h \
+  repository/IdentifierUtil.h \
+  repository/IRObject.h \
+  repository/idltype.h \
+  repository/ExceptionDef.h \
+  repository/config.h \
+  repository/Dependency.h \
+  repository/OperationDef.h \
+
+## Diagnostic information starts here
+# repository/Repository.h  from  repository/string_to.h
+# repository/PersistNode.h  from  repository/OperationDef.cc
+# repository/string_to.h  from  repository/OperationDef.cc
+# repository/Contained.h  from  repository/ExceptionDef.h
+# repository/Container.h  from  repository/Repository.h
+# repository/scour.h  from  repository/config.h
+# repository/IdentifierUtil.h  from  repository/Dependency.h
+# repository/IRObject.h  from  repository/Container.h
+# repository/idltype.h  from  repository/OperationDef.cc
+# repository/ExceptionDef.h  from  repository/OperationDef.cc
+# repository/config.h  from  repository/IRObject.h
+# repository/Dependency.h  from  repository/OperationDef.h
+# repository/OperationDef.h  from  repository/OperationDef.cc
+

@@ -1,0 +1,9 @@
+repository/usage.dep repository/usage.o: \
+  repository/usage.cc \
+  repository/scour.h \
+  repository/config.h \
+
+## Diagnostic information starts here
+# repository/scour.h  from  repository/config.h
+# repository/config.h  from  repository/usage.cc
+

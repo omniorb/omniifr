@@ -1,0 +1,27 @@
+repository/ArrayDef.dep repository/ArrayDef.o: \
+  repository/ArrayDef.cc \
+  repository/ArrayDef.h \
+  repository/Repository.h \
+  repository/PersistNode.h \
+  repository/string_to.h \
+  repository/Container.h \
+  repository/scour.h \
+  repository/IdentifierUtil.h \
+  repository/IRObject.h \
+  repository/idltype.h \
+  repository/config.h \
+  repository/Dependency.h \
+
+## Diagnostic information starts here
+# repository/ArrayDef.h  from  repository/ArrayDef.cc
+# repository/Repository.h  from  repository/ArrayDef.cc
+# repository/PersistNode.h  from  repository/ArrayDef.cc
+# repository/string_to.h  from  repository/ArrayDef.cc
+# repository/Container.h  from  repository/Repository.h
+# repository/scour.h  from  repository/config.h
+# repository/IdentifierUtil.h  from  repository/Dependency.h
+# repository/IRObject.h  from  repository/Container.h
+# repository/idltype.h  from  repository/ArrayDef.h
+# repository/config.h  from  repository/IRObject.h
+# repository/Dependency.h  from  repository/ArrayDef.h
+

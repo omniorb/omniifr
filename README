@@ -1,0 +1,250 @@
+omniIRF2: Interface Repository for omniORB.
+==========================================
+
+omniIFR2 is an implementation of the Interface Repository, for omniORB, a
+free CORBA ORB for C++ and Python. For full details, see Chapter 10 "The
+Interface Repository" in the CORBA specification v2.6:
+
+  http://www.omg.org/cgi-bin/doc?formal/01-12-35
+
+omniIFR2 closely follows the specification, rather than just implementing the
+IDL. It checks the types that are loaded into it, and helps to detect problems
+and inconsistencies at an early stage.
+
+
+TABLE OF CONTENTS
+
+1.   Building omniIFR
+2.   Configuration
+2.1  Editing omniORB.cfg
+2.2  omniifr.db - the types database.
+3.   Using omniIFR
+3.1  Running the Server
+3.2  `ifr' - The omniidl Backend
+3.3  `ifrclt' - The Command-line client.
+3.4  Using omniIFR from C++ & Python
+4.   What's Missing?
+5.   Contact
+
+
+1. Building omniIFR
+===================
+
+You need omniORB-4.0.4 (or later) in order to build omniIFR. You will also need
+omniORBpy-2.4 (or later) in order to use omniidl to populate the repository.
+Get them from Sourceforge:
+
+  http://sourceforge.net/project/showfiles.php?group_id=51138
+
+To build omniIFR on Unix - Follow these steps:
+
+1. Run the `configure' script. For a full list of available parameters,
+   type `./configure --help'. Common parameters are:
+
+    --prefix=PREFIX         install files in PREFIX [/usr/local].
+    --with-omniorb=PATH     set the path to the local omniORB installation
+                            [$OMNIORBBASE].
+    -q, --quiet, --silent   do not print `checking...' messages.
+   
+   Check the result of the configure script, and if everything looks OK, then
+   proceed on to the next step.
+
+2. Type `make'.
+
+3. Become root and type `make install'.
+
+Example:
+
+% cd omniifr
+% ./configure
+% make
+% su root
+# make install
+
+The following files & directories are installed:
+
+ o PREFIX/sbin/omniifr
+     The omniIFR server.
+
+ o PREFIX/lib/libomniifr.so
+   PREFIX/include/omniifr/Repository.h (etc.)
+     The omniifr library & header files.
+
+ o PREFIX/lib/pythonX.Y/site-packages/omniidl_be/ifr.py
+   PREFIX/lib/pythonX.Y/site-packages/omniidl_be/ifr.pyc
+     A new backend for `omniidl' that populates the repository.
+
+ o /var/lib/omniifr/.
+     This directory is created for database files.
+
+
+2. Configuration
+================
+
+2.1  Editing omniORB.cfg
+------------------------
+
+You must choose a port for omniIFR. This example assumes that you have choosen
+port 11173. Once you have chosen a port, add the following entry into your
+omniORB.cfg file:
+
+InitRef = InterfaceRepository=corbaloc::hostname:11173/DefaultRepository
+
+This line enables omniORB to find the Interface Repository by using the
+`resolve_initial_reference()' method. Replace `hostname' with your machine's
+hostname.
+
+
+2.2  omniifr.db - the types database.
+-------------------------------------
+
+A prebuilt version of `omniifr.db' is available as a separate download. This
+currently contains (most of) the OMG's `Cos Types'. To initialise your database
+with these types, simply copy the `omniifr.db' file into /var/lib/omniifr and
+start omniifr.
+
+
+3. Using omniIFR
+================
+
+3.1 Running the Server
+----------------------
+
+The binary is in PREFIX/sbin (if you used the configure --prefix parameter), or
+in /usr/local/sbin (by default). You must specify the end point to match the
+port that you chose for your omniORB.cfg file:
+
+% omniifr  -ORBendPoint giop:tcp::11173  -P /var/run/omniifr.pid  &
+
+The Repository starts empty, with no type data loaded into it. In order
+to populate it with types you need to use the omniidl compiler with the new
+`ifr' backend. You can save the Repository's database by sending it SIGUSR2,
+for example:
+
+ % kill -USR2 `cat /var/run/omniifr.pid`
+
+The database is saved to the file /var/lib/omniifr/omniifr.db. Once saved, the
+database is reloaded each time omniIFR restarts.
+
+omniIFR supports the following options:
+
+  syntax: omniIFR OPTIONS -ORBendPoint giop:tcp::11173
+  OPTIONS:
+   -f           Stay in the foreground.
+   -l PATH      full path to data directory [/var/lib/omniifr]
+   -P PIDFILE   keep track of running instance in PIDFILE.
+   -r           read only mode.
+   -t FILE      Send trace messages to FILE instead of syslog.
+   -V           display version
+   -h           display this help text
+
+
+3.2 `ifr' - The omniidl Backend
+-------------------------------
+
+You will be familiar with `omniidl' as the IDL compiler used to generate C++ or
+Python stubs. The -b option is used to select the `backend' which generates
+stubs for the target language. So, `omniidl -bcxx foo.idl' generates C++ stubs,
+and `omniidl -bpython' generates python stubs.
+
+`ifr' is a backend that does not generate language stubs. Instead it inserts the
+contents of an IDL file into the Interface Repository. Here's an example:
+
+% omniidl -bifr foo.idl
+
+The `ifr' requires omniORBpy, in addition to omniORB.
+
+
+3.3 `ifrclt' - The Command-line client.
+---------------------------------------
+
+syntax: browser/ifrclt.py [OPTIONS] [COMMAND] [ARGS]
+
+  A very simple interface repository browser. Modelled on
+  shell directory listing commands: cd, ls, pwd.
+
+  OPTIONS
+   -l       --long            ls: detailed output.
+   -rLEVELS --recurse=LEVELS  ls: Drill down LEVELS.               [default: 0]
+                              Set to -1 to recurse without limit.
+  COMMANDS
+   pwd              Show the current scope
+   cd SCOPED_NAME   Change the current scope, relative to the current scope.
+   cd ..            Change the current scope, up one level.
+   cd               Change to the root scope (the Interface Repository itself).
+   ls               List the contents of the current scope.
+   ls SCOPED_NAME   List the contents of the named definition.
+
+  The current scope is stored in the file pointed to by environment
+  variable IFRBROWSERSTATE [default: $HOME/.ifrbrowserstate].
+
+Example:
+
+% omniidl -bifr /usr/local/share/idl/omniORB/COS/CosEventComm.idl
+<snip>
+% browser/ifrclt.py cd ::CosEventComm 
+% browser/ifrclt.py pwd               
+::CosEventComm
+% browser/ifrclt.py ls                
+   exception Disconnected { ... };
+   interface PushConsumer ... ;
+   interface PushSupplier ... ;
+   interface PullSupplier ... ;
+   interface PullConsumer ... ;
+% browser/ifrclt.py -l ls PushConsumer
+ interface PushConsumer {
+   void push(in any data)
+     raises(Disconnected);
+   void disconnect_push_consumer();
+ };
+
+
+3.4 Using omniIFR from C++ & Python
+-----------------------------------
+
+An excellent introduction to the Interface Repository is available on the web
+from "C/C++ Users' Journal":
+
+  http://www.cuj.com/documents/s=8244/cujcexp2101vinoski/
+
+That series of articles also contains useful information on DII, DSI & dynamic
+CORBA in general. I've also found the dynamic CORBA sections of the omniORB3
+manual very useful. I'm not sure why they haven't found their way into the
+omniORB4 manual...
+
+  http://omniorb.sourceforge.net/omni30/omniORB/omniORB010.html
+  http://omniorb.sourceforge.net/omni30/omniORB/omniORB011.html
+  http://omniorb.sourceforge.net/omni30/omniORB/omniORB012.html
+
+Of course the OMG's CORBA specification is the ultimate reference:
+
+  http://www.omg.org/cgi-bin/doc?formal/01-12-35
+
+
+4. What's Missing?
+==================
+
+The following interfaces are not yet implemented:
+
+  AbstractInterfaceDef
+  LocalInterfaceDef
+  ValueMemberDef
+  ValueDef
+  ValueBoxDef
+  NativeDef
+
+The repository versions scheme is not implemented. Different versions of the
+same type are rejected as if the version numbers did not differ. (This is
+permitted by the specification, but it would be a useful feature.)
+
+For a full list of issues, see the files BUGS and repository/TODO.txt
+
+
+5. Contact
+==========
+
+This is an alpha release. It's not yet properly tested. Don't rely on it, but
+do try it. If you find any bugs, or you have any comments then please let me
+know:
+
+-Alex Tingle (email: alex.omniifr AT firetree.net)

@@ -1,0 +1,21 @@
+repository/WstringDef.dep repository/WstringDef.o: \
+  repository/WstringDef.cc \
+  repository/Repository.h \
+  repository/PersistNode.h \
+  repository/Container.h \
+  repository/scour.h \
+  repository/WstringDef.h \
+  repository/IRObject.h \
+  repository/idltype.h \
+  repository/config.h \
+
+## Diagnostic information starts here
+# repository/Repository.h  from  repository/WstringDef.cc
+# repository/PersistNode.h  from  repository/WstringDef.cc
+# repository/Container.h  from  repository/Repository.h
+# repository/scour.h  from  repository/config.h
+# repository/WstringDef.h  from  repository/WstringDef.cc
+# repository/IRObject.h  from  repository/Container.h
+# repository/idltype.h  from  repository/WstringDef.h
+# repository/config.h  from  repository/IRObject.h
+

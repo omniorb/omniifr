@@ -1,0 +1,21 @@
+repository/main.dep repository/main.o: \
+  repository/main.cc \
+  repository/Repository.h \
+  repository/Persist.h \
+  repository/daemon.h \
+  repository/Container.h \
+  repository/scour.h \
+  repository/IRObject.h \
+  repository/main.h \
+  repository/config.h \
+
+## Diagnostic information starts here
+# repository/Repository.h  from  repository/main.cc
+# repository/Persist.h  from  repository/main.cc
+# repository/daemon.h  from  repository/main.cc
+# repository/Container.h  from  repository/Repository.h
+# repository/scour.h  from  repository/config.h
+# repository/IRObject.h  from  repository/Container.h
+# repository/main.h  from  repository/main.cc
+# repository/config.h  from  repository/IRObject.h
+

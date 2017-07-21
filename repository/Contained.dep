@@ -1,0 +1,19 @@
+repository/Contained.dep repository/Contained.o: \
+  repository/Contained.cc \
+  repository/Repository.h \
+  repository/Contained.h \
+  repository/Container.h \
+  repository/scour.h \
+  repository/IdentifierUtil.h \
+  repository/IRObject.h \
+  repository/config.h \
+
+## Diagnostic information starts here
+# repository/Repository.h  from  repository/Contained.cc
+# repository/Contained.h  from  repository/Contained.cc
+# repository/Container.h  from  repository/Contained.cc
+# repository/scour.h  from  repository/config.h
+# repository/IdentifierUtil.h  from  repository/Contained.cc
+# repository/IRObject.h  from  repository/Contained.h
+# repository/config.h  from  repository/IRObject.h
+

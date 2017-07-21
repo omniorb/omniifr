@@ -1,0 +1,29 @@
+repository/ConstantDef.dep repository/ConstantDef.o: \
+  repository/ConstantDef.cc \
+  repository/Repository.h \
+  repository/PersistNode.h \
+  repository/string_to.h \
+  repository/Contained.h \
+  repository/Container.h \
+  repository/scour.h \
+  repository/IdentifierUtil.h \
+  repository/IRObject.h \
+  repository/idltype.h \
+  repository/ConstantDef.h \
+  repository/config.h \
+  repository/Dependency.h \
+
+## Diagnostic information starts here
+# repository/Repository.h  from  repository/string_to.h
+# repository/PersistNode.h  from  repository/ConstantDef.cc
+# repository/string_to.h  from  repository/ConstantDef.cc
+# repository/Contained.h  from  repository/ConstantDef.h
+# repository/Container.h  from  repository/ConstantDef.cc
+# repository/scour.h  from  repository/config.h
+# repository/IdentifierUtil.h  from  repository/Dependency.h
+# repository/IRObject.h  from  repository/Container.h
+# repository/idltype.h  from  repository/ConstantDef.cc
+# repository/ConstantDef.h  from  repository/ConstantDef.cc
+# repository/config.h  from  repository/IRObject.h
+# repository/Dependency.h  from  repository/ConstantDef.h
+

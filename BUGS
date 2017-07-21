@@ -1,0 +1,22 @@
+
+ o Recursive type codes are not properly generated. Instead of the correct
+   recursive type, an empty or partially formed type code is embedded inside
+   the 'parent' type code.
+
+BUGS IN OLD VERSIONS OF OMNIORB:
+
+ o If your IDL includes python keywords used as IDL identifiers, then
+   omniORBpy version 2.3 (and earlier) will crash. This is a bug in omniORBpy.
+   The patch in `patch/omniORBpy-2.3-keywords.patch' fixes this problem.
+   
+ o omniORB's implementation of CORBA::Object::_get_interface() method DOES NOT
+   WORK. It always returns a nil reference, even when it has successfully
+   obtained a definition from the Interface Repository.
+
+   WORKAROUND: The following files contain a get_interface() function that
+   works as an alternative to _get_interface(). They use non-portable omniORB
+   features.
+
+     browser/IfrConnection.h - C++
+     browser/ifrconnection.py - Python
+

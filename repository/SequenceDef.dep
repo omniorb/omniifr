@@ -1,0 +1,27 @@
+repository/SequenceDef.dep repository/SequenceDef.o: \
+  repository/SequenceDef.cc \
+  repository/Repository.h \
+  repository/PersistNode.h \
+  repository/string_to.h \
+  repository/Container.h \
+  repository/scour.h \
+  repository/IdentifierUtil.h \
+  repository/IRObject.h \
+  repository/idltype.h \
+  repository/SequenceDef.h \
+  repository/config.h \
+  repository/Dependency.h \
+
+## Diagnostic information starts here
+# repository/Repository.h  from  repository/SequenceDef.cc
+# repository/PersistNode.h  from  repository/SequenceDef.cc
+# repository/string_to.h  from  repository/SequenceDef.cc
+# repository/Container.h  from  repository/Repository.h
+# repository/scour.h  from  repository/config.h
+# repository/IdentifierUtil.h  from  repository/Dependency.h
+# repository/IRObject.h  from  repository/Container.h
+# repository/idltype.h  from  repository/SequenceDef.h
+# repository/SequenceDef.h  from  repository/SequenceDef.cc
+# repository/config.h  from  repository/IRObject.h
+# repository/Dependency.h  from  repository/SequenceDef.h
+

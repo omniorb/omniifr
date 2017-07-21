@@ -1,0 +1,43 @@
+repository/Repository.dep repository/Repository.o: \
+  repository/Repository.cc \
+  repository/ArrayDef.h \
+  repository/IdentifierUtil.h \
+  repository/Repository.h \
+  repository/Persist.h \
+  repository/Creche.h \
+  repository/PrimitiveDef.h \
+  repository/PersistNode.h \
+  repository/Contained.h \
+  repository/Dependency.h \
+  repository/Container.h \
+  repository/scour.h \
+  repository/WstringDef.h \
+  repository/IRObject.h \
+  repository/idltype.h \
+  repository/SequenceDef.h \
+  repository/TypedefDef.h \
+  repository/FixedDef.h \
+  repository/config.h \
+  repository/StringDef.h \
+
+## Diagnostic information starts here
+# repository/ArrayDef.h  from  repository/Repository.cc
+# repository/IdentifierUtil.h  from  repository/Dependency.h
+# repository/Repository.h  from  repository/Repository.cc
+# repository/Persist.h  from  repository/Repository.cc
+# repository/Creche.h  from  repository/Repository.cc
+# repository/PrimitiveDef.h  from  repository/Repository.cc
+# repository/PersistNode.h  from  repository/Repository.cc
+# repository/Contained.h  from  repository/Repository.cc
+# repository/Dependency.h  from  repository/SequenceDef.h
+# repository/Container.h  from  repository/Repository.h
+# repository/scour.h  from  repository/config.h
+# repository/WstringDef.h  from  repository/Repository.cc
+# repository/IRObject.h  from  repository/Contained.h
+# repository/idltype.h  from  repository/TypedefDef.h
+# repository/SequenceDef.h  from  repository/Repository.cc
+# repository/TypedefDef.h  from  repository/Repository.cc
+# repository/FixedDef.h  from  repository/Repository.cc
+# repository/config.h  from  repository/Persist.h
+# repository/StringDef.h  from  repository/Repository.cc
+
