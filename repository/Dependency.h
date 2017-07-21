@@ -67,7 +67,7 @@ inline IRObject_impl* referenceToServant(Object_ptr obj)
   catch(Exception& ex)
   {
     DB(1,"Failed to get reference_to_servant"
-      IFELSE_OMNIORB4(" ("<<ex._name()<<")",)) // but press on...
+      IFELSE_OMNIORB4(" ("<<ex._name()<<")",0)) // but press on...
   }
 
   if(servant && !result)

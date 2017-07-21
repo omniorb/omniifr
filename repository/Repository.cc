@@ -441,12 +441,12 @@ void Repository_impl::init(
   catch(CORBA::SystemException& ex)
   {
     cerr<<"Failed to "<<action<<"."
-      IFELSE_OMNIORB4(" "<<ex._name()<<" ("<<ex.NP_minorString()<<")",) <<endl;
+      IFELSE_OMNIORB4(" "<<ex._name()<<" ("<<ex.NP_minorString()<<")",0) <<endl;
     throw;
   }
   catch(CORBA::Exception& ex)
   {
-    cerr<<"Failed to "<<action<<"." IFELSE_OMNIORB4(" "<<ex._name(),) <<endl;
+    cerr<<"Failed to "<<action<<"." IFELSE_OMNIORB4(" "<<ex._name(),0) <<endl;
     throw;
   }
 }
@@ -670,12 +670,12 @@ void Repository_impl::reincarnate(const PersistNode &node)
   recreate(node.child("NAME"),todo/*OUT*/);
 
   // Create links.
-  for(map<IRObject_impl*,PersistNode*>::iterator i =todo.begin();
-                                                 i!=todo.end();
-                                               ++i)
+  for(map<IRObject_impl*,PersistNode*>::iterator i2 =todo.begin();
+                                                 i2!=todo.end();
+                                               ++i2)
   {
-    DB(5,"Repository::reincarnate "<<i->second->attrString("id").c_str())
-    i->first->reincarnate(*i->second);
+    DB(5,"Repository::reincarnate "<<i2->second->attrString("id").c_str())
+    i2->first->reincarnate(*i2->second);
   }
 }
 

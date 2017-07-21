@@ -156,7 +156,7 @@ char* RegistryKey::queryValueStr(const char* name, const int maxlen) const
   long ret=::RegQueryValueEx(_hkey,name,NULL,NULL,(LPBYTE)buf,&len);
   ::SetLastError(ret);
   if(ret==ERROR_SUCCESS && len<=maxlen)
-      result=::strdup(buf); // MSVC6 has no strndup()!!
+      result=::_strdup(buf); // MSVC6 has no strndup()!!
   delete[] buf;
   return result;
 }
@@ -202,7 +202,7 @@ Service::~Service()
 void Service::tracefile(const char* val)
 {
   delete[] _tracefile;
-  _tracefile=::strdup(val);
+  _tracefile=::_strdup(val);
 }
 
 
@@ -242,7 +242,7 @@ void Service::start(int& argc,char**& argv)
   else if(argc>=2 && 0==::strcmp(argv[1],"service"))
   {
     // Start service.
-    char* name =::strdup(PACKAGE_NAME);
+    char* name =::_strdup(PACKAGE_NAME);
     SERVICE_TABLE_ENTRY servicetable[]=
     {
       {name,(LPSERVICE_MAIN_FUNCTION)::main},

@@ -164,11 +164,11 @@ int main(int argc, char* argv[])
   catch(CORBA::SystemException& ex)
   {
     cerr<<"Failed while "<<action<<"."
-      IFELSE_OMNIORB4(" "<<ex._name()<<" ("<<ex.NP_minorString()<<")",) <<endl;
+      IFELSE_OMNIORB4(" "<<ex._name()<<" ("<<ex.NP_minorString()<<")",0) <<endl;
   }
   catch(CORBA::Exception& ex)
   {
-    cerr<<"Failed while "<<action<<"." IFELSE_OMNIORB4(" "<<ex._name(),) <<endl;
+    cerr<<"Failed while "<<action<<"." IFELSE_OMNIORB4(" "<<ex._name(),0) <<endl;
   }
   return 1;
 }

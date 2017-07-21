@@ -77,7 +77,7 @@ void getPoaAndOid(
   catch(CORBA::BAD_PARAM& ex)
   {
     cerr<<"Can't convert ObjectID to string.\n"
-      "BAD_PARAM" IFELSE_OMNIORB4(": "<<ex.NP_minorString(),) <<endl;
+      "BAD_PARAM" IFELSE_OMNIORB4(": "<<ex.NP_minorString(),0) <<endl;
   }
 }
 
@@ -136,7 +136,7 @@ void IRObject_impl::activateObject()
   // Generate a new unique ID.
   static long  count=0;
   static omni_mutex  mutex;
-  int  mypid =getpid(); // MS VC++6 doesn't have type pid_t!
+  int  mypid =_getpid(); // MS VC++6 doesn't have type pid_t!
   unsigned long  sec,nsec;
   omni_thread::get_time(&sec,&nsec); // More portable than just time().
   char buf[128];
@@ -162,7 +162,7 @@ void IRObject_impl::activateObjectWithId(const char* oidStr)
   catch(CORBA::BAD_PARAM& ex)
   {
     cerr<<"Can't activate "<<oidStr<<".\n"
-      "BAD_PARAM" IFELSE_OMNIORB4(": "<<ex.NP_minorString(),) <<endl;
+      "BAD_PARAM" IFELSE_OMNIORB4(": "<<ex.NP_minorString(),0) <<endl;
   }
   catch(POA::ServantAlreadyActive& ex)
   {
@@ -228,7 +228,8 @@ void IRObject_impl::outputOid(ostream &os)
 }
 
 
-bool IRObject_impl::checkReadonly() const
+//bool IRObject_impl::checkReadonly() const
+void IRObject_impl::checkReadonly() const
 {
   if(_activated && Repository_impl::inst().readonly())
   {

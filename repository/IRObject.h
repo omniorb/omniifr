@@ -161,7 +161,8 @@ public:
    * activated - they may need to call CORBA methods such as
    * Contained::name(X) as part of their (pre-activation) set-up.
    */
-  bool checkReadonly() const;
+//  bool checkReadonly() const;
+  void checkReadonly() const;
 };
 
 } // end namespace Omniifr

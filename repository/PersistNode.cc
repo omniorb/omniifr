@@ -221,7 +221,8 @@ void PersistNode::outputCdrMemoryStream(
       os<<prefix;
   char buf[3];
   CORBA::ULong len(memstr.bufSize());
-  CORBA::Octet* ptr((CORBA::Octet*)memstr.bufPtr());
+//CORBA::Octet* ptr((CORBA::Octet*)memstr.bufPtr());
+  CORBA::Octet* ptr = (CORBA::Octet*) memstr.bufPtr();
   for(CORBA::ULong i=0; i<len; ++i)
   {
     sprintf(buf,"%02x",ptr[i]);
