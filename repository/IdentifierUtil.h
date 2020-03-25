@@ -72,7 +72,7 @@ public:
     // Should not be testing NULL pointers.
     assert(name);
 
-    bool valid =bool( name[0] ); // string not empty
+    bool valid = name [0] ? true : false; // string not empty
 
     if(valid)
     {

@@ -46,7 +46,7 @@ inline IRObject_impl* referenceToServant(Object_ptr obj)
     // servant's reference count has been incremented for us.
     result=dynamic_cast<IRObject_impl*>(servant);
   }
-  catch(PortableServer::POA::ObjectNotActive& ex)
+  catch(PortableServer::POA::ObjectNotActive &)
   {
     // _poa does not contain irobject.
     servant=NULL;
@@ -54,12 +54,12 @@ inline IRObject_impl* referenceToServant(Object_ptr obj)
     // ?? remove this when reincarnation works.
     DB(1,"?? Reference to object that doesn't exist yet. ??")
   }
-  catch(PortableServer::POA::WrongAdapter& ex)
+  catch(PortableServer::POA::WrongAdapter &)
   {
     cerr<<"POA has wrong adapter for reference_to_servant()."<<endl;
     exit(1); // Programming error - so quit.
   }
-  catch(PortableServer::POA::WrongPolicy& ex)
+  catch(PortableServer::POA::WrongPolicy &)
   {
     cerr<<"POA has wrong policy for reference_to_servant()."<<endl;
     exit(1); // Programming error - so quit.

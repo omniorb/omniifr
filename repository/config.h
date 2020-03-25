@@ -41,7 +41,7 @@
 #define HAVE_GETHOSTNAME 1
 
 /* Define to 1 if you have the `getopt' function. */
-#define HAVE_GETOPT 1
+/* #undef HAVE_GETOPT */
 
 /* Define to 1 if you have the `getpid' function. */
 #define HAVE_GETPID 1
@@ -71,7 +71,7 @@
 /* #undef HAVE_OMNIORB3 */
 
 /* "define if omniORB4 is available." */
-/* #undef HAVE_OMNIORB4 */
+#define HAVE_OMNIORB4 1
 
 /* Define to 1 if you have the `on_exit' function. */
 #define HAVE_ON_EXIT 1
@@ -101,7 +101,8 @@
 #define HAVE_STL 
 
 /* Define to 1 if you have the `strcasecmp' function. */
-#define HAVE_STRCASECMP 1
+/* #undef HAVE_STRCASECMP */
+#define strcasecmp _stricmp
 
 /* Define to 1 if you have the `strcmp' function. */
 #define HAVE_STRCMP 1
@@ -122,7 +123,7 @@
 #define HAVE_SYS_TYPES_H 1
 
 /* Define to 1 if you have the <unistd.h> header file. */
-#define HAVE_UNISTD_H 1
+/* #undef HAVE_UNISTD_H */
 
 /* Define to the address where bug reports for this package should be sent. */
 #define PACKAGE_BUGREPORT "alex.omniifr@firetree.net"
@@ -139,7 +140,8 @@
 /* Define to the version of this package. */
 #define PACKAGE_VERSION "2.pre.2"
 
-/* Define to the necessary symbol if this constant uses a non-standard name
+/* Define to the necessary symbol if this constant
+ uses a non-standard name
    on your system. */
 /* #undef PTHREAD_CREATE_JOINABLE */
 
