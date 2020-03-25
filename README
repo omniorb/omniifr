@@ -1,42 +1,42 @@
-omniIRF2: Interface Repository for omniORB.
+OmniIRF2: Interface Repository for omniORB
 ==========================================
 
-omniIFR2 is an implementation of the Interface Repository, for omniORB, a
+OmniIFR2 is an implementation of the Interface Repository, for OmniORB, a
 free CORBA ORB for C++ and Python. For full details, see Chapter 10 "The
 Interface Repository" in the CORBA specification v2.6:
 
   http://www.omg.org/cgi-bin/doc?formal/01-12-35
 
-omniIFR2 closely follows the specification, rather than just implementing the
+OmniIFR2 closely follows the specification, rather than just implementing the
 IDL. It checks the types that are loaded into it, and helps to detect problems
 and inconsistencies at an early stage.
 
 
 TABLE OF CONTENTS
 
-1.   Building omniIFR
+1.   Building OmniIFR
 2.   Configuration
-2.1  Editing omniORB.cfg
+2.1  Editing OmniORB.cfg
 2.2  omniifr.db - the types database.
-3.   Using omniIFR
+3.   Using OmniIFR
 3.1  Running the Server
 3.2  `ifr' - The omniidl Backend
 3.3  `ifrclt' - The Command-line client.
-3.4  Using omniIFR from C++ & Python
+3.4  Using OmniIFR from C++ & Python
 4.   What's Missing?
 5.   Contact
 
 
-1. Building omniIFR
+1. Building OmniIFR
 ===================
 
-You need omniORB-4.0.4 (or later) in order to build omniIFR. You will also need
+You need omniORB-4.0.4 (or later) in order to build OmniIFR. You will also need
 omniORBpy-2.4 (or later) in order to use omniidl to populate the repository.
 Get them from Sourceforge:
 
   http://sourceforge.net/project/showfiles.php?group_id=51138
 
-To build omniIFR on Unix - Follow these steps:
+To build OmniIFR on Unix - Follow these steps:
 
 1. Run the `configure' script. For a full list of available parameters,
    type `./configure --help'. Common parameters are:
@@ -84,7 +84,7 @@ The following files & directories are installed:
 2.1  Editing omniORB.cfg
 ------------------------
 
-You must choose a port for omniIFR. This example assumes that you have choosen
+You must choose a port for OmniIFR. This example assumes that you have choosen
 port 11173. Once you have chosen a port, add the following entry into your
 omniORB.cfg file:
 
@@ -104,7 +104,7 @@ with these types, simply copy the `omniifr.db' file into /var/lib/omniifr and
 start omniifr.
 
 
-3. Using omniIFR
+3. Using OmniIFR
 ================
 
 3.1 Running the Server
@@ -124,9 +124,9 @@ for example:
  % kill -USR2 `cat /var/run/omniifr.pid`
 
 The database is saved to the file /var/lib/omniifr/omniifr.db. Once saved, the
-database is reloaded each time omniIFR restarts.
+database is reloaded each time OmniIFR restarts.
 
-omniIFR supports the following options:
+OmniIFR supports the following options:
 
   syntax: omniIFR OPTIONS -ORBendPoint giop:tcp::11173
   OPTIONS:
@@ -199,7 +199,7 @@ Example:
  };
 
 
-3.4 Using omniIFR from C++ & Python
+3.4 Using OmniIFR from C++ & Python
 -----------------------------------
 
 An excellent introduction to the Interface Repository is available on the web

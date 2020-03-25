@@ -41,7 +41,7 @@
 #define HAVE_GETHOSTNAME 1
 
 /* Define to 1 if you have the `getopt' function. */
-#undef HAVE_GETOPT
+#define HAVE_GETOPT 1
 
 /* Define to 1 if you have the `getpid' function. */
 #define HAVE_GETPID 1
@@ -59,7 +59,7 @@
 #define HAVE_IOSTREAM 1
 
 /* Define to 1 if you have the <iostream.h> header file. */
-#undef HAVE_IOSTREAM_H
+/* #undef HAVE_IOSTREAM_H */
 
 /* Define to 1 if you have the <memory.h> header file. */
 #define HAVE_MEMORY_H 1
@@ -71,7 +71,7 @@
 /* #undef HAVE_OMNIORB3 */
 
 /* "define if omniORB4 is available." */
-#define HAVE_OMNIORB4 1
+/* #undef HAVE_OMNIORB4 */
 
 /* Define to 1 if you have the `on_exit' function. */
 #define HAVE_ON_EXIT 1
@@ -101,8 +101,7 @@
 #define HAVE_STL 
 
 /* Define to 1 if you have the `strcasecmp' function. */
-#undef HAVE_STRCASECMP
-#define strcasecmp _stricmp
+#define HAVE_STRCASECMP 1
 
 /* Define to 1 if you have the `strcmp' function. */
 #define HAVE_STRCMP 1
@@ -123,7 +122,7 @@
 #define HAVE_SYS_TYPES_H 1
 
 /* Define to 1 if you have the <unistd.h> header file. */
-#undef HAVE_UNISTD_H
+#define HAVE_UNISTD_H 1
 
 /* Define to the address where bug reports for this package should be sent. */
 #define PACKAGE_BUGREPORT "alex.omniifr@firetree.net"
@@ -132,16 +131,15 @@
 #define PACKAGE_NAME "omniifr"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "omniifr 2.pre.1"
+#define PACKAGE_STRING "omniifr 2.pre.2"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "omniifr"
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "2.pre.1"
+#define PACKAGE_VERSION "2.pre.2"
 
-/* Define to the necessary symbol if this constant
- uses a non-standard name
+/* Define to the necessary symbol if this constant uses a non-standard name
    on your system. */
 /* #undef PTHREAD_CREATE_JOINABLE */
 
@@ -157,7 +155,7 @@
 #define STDC_HEADERS 1
 
 /* for omniORB */
-#define __OSVERSION__ 2
+#define __OSVERSION__ 0
 
 /* needed by DEC/Compaq/HP cxx to activate ANSI standard iostream. */
 #define __USE_STD_IOSTREAM 1
@@ -190,7 +188,7 @@
 /* #undef __irix__ */
 
 /* for OmniORB on Linux, Cygwin */
-/* #undef __linux__
+/* #undef __linux__ */
 
 /* for OmniORB on m68kProcessor */
 /* #undef __m68k__ */

@@ -42,7 +42,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="E:\Viewstore\omniORB.4\include"
+				AdditionalIncludeDirectories="E:\Viewstore\dl-build\install\omniorb\core\4.2.3\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE;HAVE_CONFIG_H;__x86__;__WIN32__;ENABLE_CLIENT_IR_SUPPORT;_CRT_SECURE_NO_WARNINGS"
 				ExceptionHandling="2"
 				RuntimeLibrary="2"
@@ -72,7 +72,7 @@
 				OutputFile=".\Release/omniifr.exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="E:\Viewstore\omniORB.4\lib\x86_win32"
+				AdditionalLibraryDirectories="E:\Viewstore\dl-build\install\omniorb\core\4.2.3\lib\x86_win32"
 				IgnoreAllDefaultLibraries="true"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile=".\Release/omniifr.pdb"
