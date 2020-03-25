@@ -46,12 +46,12 @@ ifr=None
 def DB(debugLevel,message):
   """Print a debug message."""
   if(5>=debugLevel):
-    print message
+    print (message)
 
 def obtainversion(node):
   """Calculate the version string, from node's Repository ID."""
   rid=node.repoId()
-  pos=string.rfind(rid,":")
+  pos=rid.rfind(":")
   return rid[pos+1:]
 
 def expecting(irobj,expectedDefKind):
@@ -536,7 +536,7 @@ class IfrVisitor:
         obj=self.orb.resolve_initial_references("InterfaceRepository")
         ifr=obj._narrow(CORBA.Repository)
         return ifr
-      except CORBA.ORB.InvalidName, ex:
+      except CORBA.ORB.InvalidName as ex:
         sys.stderr.write('InitRef InterfaceRepository not defined.\n')
         sys.exit(1)
 
@@ -724,7 +724,7 @@ class IfrVisitor:
         ifr.create_fixed(typeNode.digits(),typeNode.scale())
 
   def visitDeclaredType(self,typeNode):
-      if(self.ttsMap.has_key(typeNode.kind())):
+      if(typeNode.kind() in self.ttsMap):
         # omniidl incorrectly treats Object (&Value?) as Declared types
         # rather than base types, so redirect...
         self.visitBaseType(typeNode)
